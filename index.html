@@ -1,9 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
-    <title>Crushing Bugs</title>
+    <meta charset="utf-8" />
+    <title>Drag and Drop Puzzle Game</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
+      rel="stylesheet"
+    />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body></body>
+  <body>
+    <button id="resetBut" class="hidden">Reset</button>
+
+    <header id="headLine">
+      <h1>drag and drop!</h1>
+      <p>solve the puzzle</p>
+    </header>
+    <section id="game-boards">
+      <div class="puzzle-pieces">
+        <img
+          src="images/topLeft0.jpg"
+          class="puzzle-image"
+          alt="top left piece"
+          draggable="true"
+        />
+        <img
+          src="images/topRight0.jpg"
+          class="puzzle-image"
+          alt="top Right piece"
+          draggable="true"
+        />
+        <img
+          src="images/bottomLeft0.jpg"
+          class="puzzle-image"
+          alt="bottom Left piece"
+          draggable="true"
+        />
+        <img
+          src="images/bottomRight0.jpg"
+          class="puzzle-image"
+          alt="bottom Right piece"
+          draggable="true"
+        />
+      </div>
+      <!-- Drop Zone-->
+      <div class="puzzle-board">
+        <div class="drop-zone tl"></div>
+        <div class="drop-zone tr"></div>
+        <div class="drop-zone bl"></div>
+        <div class="drop-zone br"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>CLick on the thumbnai to change pieces</p>
+      <nav id="buttonHolder">
+        <img src="images/buttonZero.jpg" alt="puzzle 1" id="0" />
+        <img src="images/buttonOne.jpg" alt="puzzle 2" id="1" />
+        <img src="images/buttonTwo.jpg" alt="puzzle 3" id="2" />
+        <img src="images/buttonThree.jpg" alt="puzzle 4" id="3" />
+      </nav>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
 </html>
