@@ -9,6 +9,9 @@ html {
 *:after {
   box-sizing: inherit;
 }
+.hidden {
+  display: none;
+}
 body {
   margin: 0px;
   border: 0px;
