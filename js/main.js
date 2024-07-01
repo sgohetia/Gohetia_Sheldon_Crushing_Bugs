@@ -6,6 +6,7 @@ const puzzleBoard = document.querySelector(".puzzle-board");
 const puzzlePieces = document.querySelectorAll(".puzzle-pieces img");
 const dropZones = document.querySelectorAll(".drop-zone");
 const piecesContainer = document.querySelector(".puzzle-pieces");
+const resetButton = document.getElementById("resetBut");
 
 //This will handle all dragged items
 let draggedPieces;
@@ -34,7 +35,7 @@ function changeBGI(e) {
 }
 
 //This is the function where I can resets the drop zone and then updates each puzzle piece image.
-//based on the provided background IDm using the variable puzzleImages mapping.
+//based on the provided background ID using the variable puzzleImages mapping.
 //Then re-add the puzzle pieces to the pieces container.
 function refreshPuzzle(id) {
   dropZones.forEach((zone) => {
@@ -49,13 +50,26 @@ function refreshPuzzle(id) {
   //This allows us to use the index to select the correct image from our puzzleImage mapping.
   puzzlePieces.forEach((piece, index) => {
     piece.setAttribute("draggable", "true");
-    //In this method, the index here is used to access the appropriate image filename from the array
+    //the index here is used to access the appropriate image filename from the array
     //corresponding to the selected background ID.
     piece.src = `../images/${puzzleImages[id][index]}`;
     piecesContainer.appendChild(piece);
   });
 }
-
+//function removes any puzzle pieces from the drop zones and reattaches them to the original pieces container, making them draggable again.
+//This function is called when the reset button is clicked.
+function resetPuzzle() {
+  dropZones.forEach((zone) => {
+    if (zone.firstChild) {
+      zone.firstChild.remove();
+    }
+    zone.classList.remove("puzzle-image");
+  });
+  puzzlePieces.forEach((piece) => {
+    piece.setAttribute("draggable", "true");
+    piecesContainer.appendChild(piece);
+  });
+}
 function draggedStart() {
   console.log("start dragging");
   draggedPieces = this;
@@ -91,3 +105,4 @@ puzzlePieces.forEach((piece) =>
 );
 dropZones.forEach((Zone) => Zone.addEventListener("dragover", draggedOver));
 dropZones.forEach((dropMe) => dropMe.addEventListener("drop", droppedMe));
+resetButton.addEventListener("click", resetPuzzle);
