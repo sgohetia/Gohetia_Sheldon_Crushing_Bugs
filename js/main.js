@@ -56,7 +56,7 @@ function refreshPuzzle(id) {
     piecesContainer.appendChild(piece);
   });
 }
-//function removes any puzzle pieces from the drop zones and reattaches them to the original pieces container, making them draggable again.
+//This function removes any puzzle pieces from the drop zones and reattaches them to the original pieces container, making them draggable again.
 //This function is called when the reset button is clicked.
 function resetPuzzle() {
   dropZones.forEach((zone) => {
